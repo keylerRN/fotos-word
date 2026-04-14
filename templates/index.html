@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fotos a Word</title>
+</head>
+
+<body style="font-family: Arial; background: #1e1e2f; color: white; text-align: center;">
+
+    <div style="margin-top: 80px;">
+
+        <h1 style="font-size: 40px;">📄 Convertidor de Fotos</h1>
+
+        <form action="/generar" method="post" enctype="multipart/form-data"
+              style="background: #2c2c3e; padding: 30px; border-radius: 15px; display: inline-block;">
+
+            <input type="file" name="imagenes" multiple required
+                   style="margin-bottom: 20px; color: white;">
+
+            <br>
+
+            <button style="
+                padding: 12px 25px;
+                font-size: 16px;
+                background: #4CAF50;
+                border: none;
+                border-radius: 10px;
+                color: white;
+                cursor: pointer;
+            ">
+                Generar Word
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
