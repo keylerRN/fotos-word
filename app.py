@@ -3,21 +3,23 @@ from docx import Document
 from docx.shared import Inches
 import os
 
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__, template_folder="templates")
 
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+
 # -------- RUTA PRINCIPAL --------
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
+
 
 # -------- GENERAR WORD --------
-@app.route('/generar', methods=['POST'])
+@app.route("/generar", methods=["POST"])
 def generar():
     files = request.files.getlist("imagenes")
-    
+
     doc = Document()
 
     from docx.enum.table import WD_TABLE_ALIGNMENT
@@ -45,9 +47,10 @@ def generar():
 
     output = "resultado.docx"
     doc.save(output)
-    
+
     return send_file(output, as_attachment=True)
 
+
 # -------- EJECUTAR --------
-if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=10000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10000)
